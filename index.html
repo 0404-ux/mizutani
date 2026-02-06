@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>ペット飼育判定アプリ</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #f4f6f8;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    .container {
+      max-width: 520px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    label {
+      font-weight: bold;
+      margin-top: 10px;
+      display: block;
+    }
+
+    select, input, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 6px;
+    }
+
+    button {
+      background: #2c7be5;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 12px;
+    }
+
+    img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 8px;
+      margin: 12px 0;
+    }
+
+    .result-card {
+      margin-top: 15px;
+      padding: 15px;
+      border-radius: 10px;
+    }
+
+    .ok {
+      background: #e6f7ee;
+      border-left: 6px solid #2ecc71;
+    }
+
+    .ng {
+      background: #fdecea;
+      border-left: 6px solid #e74c3c;
+    }
+  </style>
+</head>
+
+<body>
+  <h1>🐾 ペット飼育判定アプリ</h1>
+
+  <div class="container">
+    <label>飼いたい動物</label>
+    <select id="animal" onchange="updateImage()">
+      <option value="dog">犬</option>
+      <option value="cat">猫</option>
+      <option value="rabbit">うさぎ</option>
+      <option value="bird">小鳥</option>
+      <option value="hamster">ハムスター</option>
+    </select>
+
+    <img id="animalImage" alt="動物の画像">
+
+    <label>1日に世話できる時間（分）</label>
+    <input type="number" id="time">
+
+    <label>1か月に使えるお金（円）</label>
+    <input type="number" id="money">
+
+    <label>長時間の留守はありますか？</label>
+    <select id="away">
+      <option value="no">いいえ</option>
+      <option value="yes">はい</option>
+    </select>
+
+    <button onclick="checkPet()">判定する</button>
+
+    <div id="result"></div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
